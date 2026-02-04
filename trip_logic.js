@@ -33,8 +33,8 @@ const defaultTripEvents = [
 
 // Supabase Configuration
 // REPLACE THESE WITH YOUR OWN KEYS FROM SUPABASE DASHBOARD
-const SUPABASE_URL = 'https://wgdyfxndajymkuiepqrl.supabase.co';
-const SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6IndnZHlmeG5kYWp5bWt1aWVwcXJsIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzAxNDcwNjgsImV4cCI6MjA4NTcyMzA2OH0.V10YJw5wAOZLY4RsVDENcG-FgDDaWf5recCE4FUwysk';
+const SUPABASE_URL = 'https://cpzsyjxfwjvhsiyurdfp.supabase.co';
+const SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImNwenN5anhmd2p2aHNpeXVyZGZwIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzAxODM4MDQsImV4cCI6MjA4NTc1OTgwNH0.SKqHWH8wMWMP1Ge4lRHUr5v4ogqMl_yE_3XO5XIGK7w';
 
 // Initialize Client (if library is loaded)
 let db;
