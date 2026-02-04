@@ -1,22 +1,34 @@
 // Trip Data Configuration
+// Trip Data Configuration
 const defaultTripEvents = [
-    { id: 'start', title: 'Trip Begins: Assembly', time: 'Feb 7', description: 'Assembly at Thrissur Railway Station. Head Count Check.', status: 'pending', icon: '🚩', countCheck: true },
-    { id: 'train_board', title: 'Boarding Train', time: 'Feb 7', description: 'Train Departs towards Delhi', status: 'pending', icon: '🚆' },
-    { id: 'delhi_reach', title: 'Reached Delhi', time: 'Feb 8', description: 'Arrival at Hazrat Nizamuddin Station. Head Count Check.', status: 'pending', icon: '📍', countCheck: true },
-    { id: 'bus_board', title: 'Boarding Volvo', time: 'Feb 8', description: 'Transfer to Volvo Bus for Manali', status: 'pending', icon: '🚌' },
-    { id: 'manali_reach', title: 'Reached Manali', time: 'Feb 9', description: 'Arrival in Manali. Hotel Check-in. Head Count Check.', status: 'pending', icon: '🏔️', countCheck: true },
-    { id: 'sightseeing_manali', title: 'Local Sightseeing', time: 'Feb 9', description: 'Hadimba Temple, Van Vihar, Mall Road', status: 'pending', icon: '📷' },
+    // Day 1: Feb 7
+    { id: 'trip_start', title: 'Trip Start: Agra', time: 'Feb 7', description: 'Taj Mahal & Agra Fort Visit', status: 'pending', icon: '🕌', countCheck: true },
+    { id: 'agra_delhi', title: 'Transfer to Delhi', time: 'Feb 7', description: 'Evening transfer from Agra to Delhi', status: 'pending', icon: '🚌' },
 
-    // Day 4 Updated (Feb 10)
-    { id: 'snow_point_start', title: 'Depart for Snow Point', time: 'Feb 10', description: 'Early morning departure for Snow Point.', status: 'pending', icon: '❄️' },
-    { id: 'snow_point_check', title: 'Snow Point Check', time: 'Feb 10', description: 'Post-excursion Head Count. ⚠️ ALERT: Not all students reported.', status: 'pending', icon: '📋', countCheck: true, warning: true },
+    // Day 2: Feb 8
+    { id: 'delhi_sight_1', title: 'Delhi Sightseeing', time: 'Feb 8', description: 'Qutub Minar, India Gate, Jama Masjid', status: 'pending', icon: '🏛️' },
+    { id: 'volvo_board', title: 'Boarding Volvo', time: 'Feb 8', description: 'Overnight journey to Manali', status: 'pending', icon: '🚌', countCheck: true },
 
-    { id: 'kullu_visit', title: 'Kullu Visit', time: 'Feb 11', description: 'River Rafting. Head Count Check.', status: 'pending', icon: '🌊', countCheck: true },
-    { id: 'return_journey', title: 'Return Journey', time: 'Feb 11', description: 'Volvo Bus to Delhi boarded', status: 'pending', icon: '🚌' },
-    { id: 'delhi_sight', title: 'Delhi Sightseeing', time: 'Feb 12', description: 'Sightseeing. Head Count Check.', status: 'pending', icon: '🕌', countCheck: true },
-    { id: 'train_return', title: 'Train to Mumbai', time: 'Feb 12', description: 'Boarding train to Mumbai', status: 'pending', icon: '🚆' },
-    { id: 'mumbai_transfer', title: 'Mumbai Transfer', time: 'Feb 13', description: 'Transfer to LTT. Head Count Check.', status: 'pending', icon: '⇄', countCheck: true },
-    { id: 'home_arrival', title: 'Homecoming', time: 'Feb 14', description: 'Reached Kerala safely', status: 'pending', icon: '🏡' }
+    // Day 3: Feb 9
+    { id: 'manali_arrival', title: 'Reached Manali', time: 'Feb 9', description: 'Hotel Check-in & Relax', status: 'pending', icon: '🏨' },
+    { id: 'manali_local', title: 'Manali Local', time: 'Feb 9', description: 'Hadimba Temple, Mall Road, Van Vihar', status: 'pending', icon: '🛍️' },
+
+    // Day 4: Feb 10
+    { id: 'snow_point', title: 'Snow Adventure', time: 'Feb 10', description: 'Solang Valley, Atal Tunnel, Sissu', status: 'pending', icon: '❄️', countCheck: true },
+
+    // Day 5: Feb 11
+    { id: 'kullu_rafting', title: 'Kullu Rafting', time: 'Feb 11', description: 'River Rafting in Kullu', status: 'pending', icon: '🌊' },
+    { id: 'kasol_transfer', title: 'Grahan Trek Start', time: 'Feb 11', description: 'Move to Kasol & Trek to Grahan Village', status: 'pending', icon: '🥾', countCheck: true },
+
+    // Day 6: Feb 12
+    { id: 'grahan_morning', title: 'Village Morning', time: 'Feb 12', description: 'Explore Grahan Village', status: 'pending', icon: '🌄' },
+    { id: 'return_volvo', title: 'Return Journey', time: 'Feb 12', description: 'Trek down & Volvo to Delhi', status: 'pending', icon: '🚌', countCheck: true },
+
+    // Day 7: Feb 13
+    { id: 'delhi_sight_2', title: 'Delhi Final Day', time: 'Feb 13', description: 'Akshardham, Lotus Temple, Shopping', status: 'pending', icon: '🕌' },
+
+    // Day 8: Feb 14
+    { id: 'departure', title: 'Departure', time: 'Feb 14', description: 'Drop at Railway Station / Airport', status: 'pending', icon: '👋' }
 ];
 
 // Supabase Configuration

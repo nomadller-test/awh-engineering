@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Manali 2026: Explore the Unexplored</title>
+    <title>Manali 2026: Himalayan College Trip</title>
     <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -16,279 +16,305 @@
 <body>
     <div class="presentation-container">
 
-        <!-- Slide 1: Title -->
+        <!-- Slide 1: Cover Page -->
         <section class="slide" id="slide1">
             <div class="bg-layer" style="background-image: url('assets/slide1.png');"></div>
             <div class="content-overlay centered">
+                <p class="subtitle">✨ Himalayan College Trip Experience</p>
                 <h1 class="glitch" data-text="MANALI 2026">MANALI 2026</h1>
-                <h2 class="sub-glitch">Explore the Unexplored</h2>
-                <p class="subtitle">An 8-Day College Expedition from Thrissur</p>
+                <h2 class="sub-glitch">Agra – Delhi – Manali – Kasol – Grahan</h2>
+                <div class="info-badges">
+                    <span class="badge">8 Days / 7 Nights</span>
+                    <span class="badge">By Nomadller</span>
+                </div>
                 <div class="scroll-indicator">↓</div>
             </div>
         </section>
 
-        <!-- Slide 2: Route (Dynamic Tech Map) -->
+        <!-- Slide 2: About the Trip -->
         <section class="slide" id="slide2">
             <div class="bg-layer" style="background-image: url('assets/tech_map_video.png');"></div>
             <div class="content-overlay glass-panel">
-                <h2>The Grand Route</h2>
-                <div class="route-container">
-                    <svg class="map-overlay" viewBox="0 0 500 600" preserveAspectRatio="xMidYMid meet">
-                        <!-- Definitions for Gradients and Markers -->
-                        <defs>
-                            <linearGradient id="routeGradient" x1="0%" y1="100%" x2="100%" y2="0%">
-                                <stop offset="0%" style="stop-color:#00d2ff;stop-opacity:1" />
-                                <stop offset="100%" style="stop-color:#ff0099;stop-opacity:1" />
-                            </linearGradient>
-                            <filter id="glow">
-                                <feGaussianBlur stdDeviation="2.5" result="coloredBlur" />
-                                <feMerge>
-                                    <feMergeNode in="coloredBlur" />
-                                    <feMergeNode in="SourceGraphic" />
-                                </feMerge>
-                            </filter>
-                        </defs>
-
-                        <!-- Static Route Background (The Track) -->
-                        <path class="route-path-bg" d="M 180 550 L 260 200 L 265 80 L 260 200 L 150 380 L 180 550" />
-
-                        <!-- Segment 1: Thrissur -> Delhi -->
-                        <path id="path-leg1" fill="none" class="hidden-path" d="M 180 550 L 260 200" />
-                        <!-- Segment 2: Delhi -> Manali -->
-                        <path id="path-leg2" fill="none" class="hidden-path" d="M 260 200 L 265 80" />
-                        <!-- Segment 3: Manali -> Delhi -->
-                        <path id="path-leg3" fill="none" class="hidden-path" d="M 265 80 L 260 200" />
-                        <!-- Segment 4: Delhi -> Mumbai -->
-                        <path id="path-leg4" fill="none" class="hidden-path" d="M 260 200 L 150 380" />
-                        <!-- Segment 5: Mumbai -> Thrissur -->
-                        <path id="path-leg5" fill="none" class="hidden-path" d="M 150 380 L 180 550" />
-
-                        <!-- Moving Vehicle Group -->
-                        <g id="vehicle-group" filter="url(#glow)">
-                            <!-- Train Icon -->
-                            <g id="train-icon" display="none">
-                                <text x="-15" y="10" font-size="24">🚆</text>
-                            </g>
-                            <!-- Bus Icon -->
-                            <g id="bus-icon" display="none">
-                                <text x="-15" y="10" font-size="24">🚌</text>
-                            </g>
-                        </g>
-
-                        <!-- Cities -->
-                        <g class="city-marker">
-                            <circle cx="180" cy="550" r="6" fill="#00d2ff" />
-                            <text x="195" y="555" fill="#fff" font-size="14" font-weight="bold">Thrissur</text>
-                        </g>
-                        <g class="city-marker">
-                            <circle cx="260" cy="200" r="6" fill="#fff" />
-                            <text x="275" y="205" fill="#fff" font-size="14" font-weight="bold">Delhi</text>
-                        </g>
-                        <g class="city-marker">
-                            <circle cx="265" cy="80" r="6" fill="#ffcc00" />
-                            <text x="280" y="85" fill="#fff" font-size="14" font-weight="bold">Manali</text>
-                        </g>
-                        <g class="city-marker">
-                            <circle cx="150" cy="380" r="6" fill="#ff0099" />
-                            <text x="100" y="385" fill="#fff" font-size="14" font-weight="bold">Mumbai</text>
-                        </g>
-                    </svg>
-                </div>
-                <div class="route-stats">
-                    <div class="stat-box">
-                        <span class="neon-text">5,400 KM</span>
-                        <span class="label">Total Round Trip</span>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Slide 3: Day 1-2 (Moving Landscape) -->
-        <section class="slide" id="slide3">
-            <!-- Marquee Background for Train Motion -->
-            <div class="marquee-container">
-                <div class="marquee-content">
-                    <img src="assets/moving_landscape.png" alt="Landscape">
-                    <img src="assets/moving_landscape.png" alt="Landscape">
-                </div>
-            </div>
-            <div class="content-overlay left-aligned">
-                <div class="day-badge">Feb 7-8 (Day 1-2)</div>
-                <h2>The Journey Begins</h2>
-                <div class="info-grid">
-                    <div class="info-item">
-                        <span class="icon">🚆</span>
-                        <p>Thrissur &rarr; Delhi</p>
-                        <small>Sleeper Class Ticket Included</small>
-                    </div>
-                    <div class="info-item">
-                        <span class="icon">🕑</span>
-                        <p>05:00 AM Assembly @ Thrissur</p>
-                        <small>06:00 AM Train Departure</small>
-                    </div>
-                    <div class="info-item">
-                        <span class="icon">🚌</span>
-                        <p>Delhi Arrival &rarr; Volvo to Manali</p>
-                    </div>
-                </div>
-                <p class="highlight-text">Full day train journey. Meals not provided on train.</p>
-            </div>
-        </section>
-
-        <!-- Slide 4: Day 3 -->
-        <section class="slide" id="slide4">
-            <div class="bg-layer" style="background-image: url('assets/slide4.png');"></div>
-            <div class="content-overlay right-aligned">
-                <div class="day-badge">Day 3</div>
-                <h2>Manali Arrival & Sightseeing</h2>
-                <div class="temp-display">Check-in Hotel -> Lunch</div>
-                <ul class="itinerary-list">
-                    <li>Hadimba Temple</li>
-                    <li>Van Vihar</li>
-                    <li>Club House</li>
-                    <li>Mall Road Visit</li>
+                <h2>Trip Overview</h2>
+                <ul class="feature-list">
+                    <li>🎯 Specially designed for college students</li>
+                    <li>🏔️ Adventure + Culture + Nature</li>
+                    <li>🛡️ Safe & Budget-friendly</li>
+                    <li>🚌 Fully organized group tour</li>
+                    <li>✨ The Ultimate Himalayan Experience</li>
                 </ul>
-                <p class="small-note">Dinner & Overnight Stay</p>
             </div>
         </section>
 
-        <!-- Slide 5: Day 4 -->
-        <section class="slide" id="slide5">
-            <div class="bg-layer" style="background-image: url('assets/slide5.png');"></div>
-            <div class="content-overlay centered-bottom">
-                <div class="day-badge">Day 4: Snow Point Excursion</div>
-                <h2>Solang / Atal Tunnel / Gulaba</h2>
-
-                <div class="weather-alert">
-                    (Spot depends on season/opening)
-                </div>
-
-                <div class="weather-forecast-container"
-                    style="display: flex; gap: 10px; justify-content: center; margin: 15px 0;">
-                    <img src="assets/weather_forecast_1.jpg" alt="Weather Forecast 1"
-                        style="height: 150px; border-radius: 8px; border: 1px solid white;">
-                    <img src="assets/weather_forecast_2.jpg" alt="Weather Forecast 2"
-                        style="height: 150px; border-radius: 8px; border: 1px solid white;">
-                </div>
-
-                <div class="adventure-stats">
-                    <p class="highlight">❄️ Snow Adventure</p>
-                    <p class="warning-text">⚠ If delayed, simple lunch you should have from snow point (Own Expenses)
-                    </p>
+        <!-- Slide 3: Package Highlights -->
+        <section class="slide" id="slide3">
+            <div class="bg-layer" style="background-image: url('assets/moving_landscape.png');"></div>
+            <div class="content-overlay left-aligned">
+                <h2>Package Highlights</h2>
+                <div class="grid-2-col">
+                    <ul class="itinerary-list">
+                        <li>🕌 Taj Mahal & Agra Fort</li>
+                        <li>🏛️ Delhi Heritage Tour</li>
+                        <li>🏘️ Manali Local Sightseeing</li>
+                        <li>❄️ Solang Valley & Atal Tunnel</li>
+                    </ul>
+                    <ul class="itinerary-list">
+                        <li>🌲 Kasol & Grahan Village</li>
+                        <li>🔥 Campfire & DJ Night</li>
+                        <li>⛷️ Snow Adventure Experience</li>
+                    </ul>
                 </div>
             </div>
         </section>
 
-        <!-- Slide 6: Day 5 -->
-        <section class="slide" id="slide6">
-            <div class="bg-layer" style="background-image: url('assets/slide6.png');"></div>
-            <div class="content-overlay glass-panel">
-                <div class="day-badge">Day 5</div>
-                <h2>Kullu & Departure</h2>
-                <div class="split-info">
-                    <div class="col">
-                        <h3>Activities</h3>
-                        <p>🌊 River Rafting <br><span class="expense-note">(Own Expenses)</span></p>
-                        <p>🛍️ Kullu Shawl Factory</p>
-                    </div>
-                    <div class="col">
-                        <h3>Departure</h3>
-                        <p>Return to hotel for Lunch</p>
-                        <p>Volvo to Delhi (Evening)</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Slide 7: Day 6 (Updated Itinerary & Img) -->
-        <section class="slide" id="slide7">
+        <!-- Slide 4: Day 1-2 (Agra -> Delhi) -->
+        <section class="slide" id="slide4">
             <div class="bg-layer" style="background-image: url('assets/humayuns_tomb.png');"></div>
+            <div class="content-overlay right-aligned">
+                <div class="day-badge">Day 1 & 2</div>
+                <h2>Agra & Delhi Transfer</h2>
+
+                <div class="timeline-box">
+                    <h3>Day 1: Agra</h3>
+                    <ul class="compact-list">
+                        <li>Taj Mahal Visit</li>
+                        <li>Agra Fort Exploration</li>
+                        <li>Meena Bazaar Shopping</li>
+                        <li>Evening Transfer to Delhi</li>
+                    </ul>
+                </div>
+
+                <div class="timeline-box">
+                    <h3>Day 2: Delhi → Manali</h3>
+                    <ul class="compact-list">
+                        <li>Qutub Minar & India Gate</li>
+                        <li>Jama Masjid Visit</li>
+                        <li>🚍 Volvo Overnight Journey to Manali</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Slide 5: Day 3-4 (Manali Local -> Solang) -->
+        <section class="slide" id="slide5">
+            <div class="bg-layer" style="background-image: url('assets/slide4.png');"></div>
             <div class="content-overlay glass-panel">
-                <div class="day-badge">Day 6</div>
-                <h2>Delhi Sightseeing & Departure</h2>
+                <div class="day-badge">Day 3 & 4</div>
+                <h2>Manali Exploration</h2>
+
                 <div class="split-info">
                     <div class="col">
-                        <h3>Sightseeing</h3>
-                        <ul class="itinerary-list">
-                            <li>Humayun's Tomb</li>
-                            <li>Qutub Minar</li>
-                            <li>Lotus Temple <br><span class="small-note">(If time permits)</span></li>
+                        <h3>Day 3: Manali Local</h3>
+                        <ul class="compact-list">
+                            <li>Hadimba Temple</li>
+                            <li>Mall Road Stroll</li>
+                            <li>Club House Activities</li>
+                            <li>Van Vihar Nature Walk</li>
                         </ul>
                     </div>
                     <div class="col">
-                        <h3>Mumbai Connection</h3>
-                        <p>Evening 04:30 PM &rarr; Station Drop</p>
-                        <p>Board Train to Mumbai Bandra Terminus</p>
-                        <p class="small-note">Overnight Journey</p>
+                        <h3>Day 4: Snow & Adventure</h3>
+                        <ul class="compact-list">
+                            <li>❄️ Solang Valley</li>
+                            <li>🚇 Atal Tunnel & Sissu</li>
+                            <li>Paragliding / Ropeway (Optional)</li>
+                            <li>Scenic Mountain Views</li>
+                        </ul>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Slide 8: Day 7 -->
-        <section class="slide" id="slide8">
-            <!-- Marquee Background -->
-            <div class="marquee-container">
-                <div class="marquee-content">
-                    <img src="assets/sleeper_interior.png" alt="Train Interior">
-                    <img src="assets/mumbai_crowd.png" alt="Mumbai Crowd">
-                    <img src="assets/train_window.png" alt="Window View">
-                    <img src="assets/kerala_train.png" alt="Kerala Scenic">
-                    <!-- Duplicate for smooth loop -->
-                    <img src="assets/sleeper_interior.png" alt="Train Interior">
-                    <img src="assets/mumbai_crowd.png" alt="Mumbai Crowd">
-                    <img src="assets/train_window.png" alt="Window View">
+        <!-- Slide 6: Day 5-6 (Kasol -> Grahan) -->
+        <section class="slide" id="slide6">
+            <div class="bg-layer" style="background-image: url('assets/slide6.png');"></div>
+            <div class="content-overlay centered-bottom">
+                <div class="day-badge">Day 5 & 6</div>
+                <h2>Kasol & Grahan Trek</h2>
+
+                <div class="grid-2-col">
+                    <div class="card">
+                        <h3>Day 5: Move to Kasol</h3>
+                        <p>Manali → Kullu (Rafting) → Kasol</p>
+                        <p>🌲 Trek to Grahan Village</p>
+                        <p>Overnight Stay in Grahan</p>
+                    </div>
+                    <div class="card">
+                        <h3>Day 6: Village Life</h3>
+                        <p>Morning Village Walk</p>
+                        <p>Return Trek to Kasol</p>
+                        <p>🚌 Return Volo to Delhi (Evening)</p>
+                    </div>
                 </div>
             </div>
+        </section>
 
+        <!-- Slide 7: Day 7-8 (Delhi -> Departure) -->
+        <section class="slide" id="slide7">
+            <div class="bg-layer" style="background-image: url('assets/mumbai_crowd.png');"></div>
             <div class="content-overlay glass-panel">
-                <div class="day-badge">Day 7</div>
-                <h2>Mumbai Transfer</h2>
-                <div class="info-grid centered-grid">
-                    <div class="info-item">
-                        <span class="icon">🚉</span>
-                        <p>Reach Bandra Terminus</p>
+                <div class="day-badge">Day 7 & 8</div>
+                <h2>Delhi & Return</h2>
+
+                <div class="timeline-list">
+                    <div class="timeline-item-row">
+                        <span class="time">Day 7</span>
+                        <div class="details">
+                            <strong>Delhi Sightseeing & Shopping</strong>
+                            <p>Akshardham Temple, Lotus Temple, Paharganj Market</p>
+                        </div>
                     </div>
-                    <div class="info-item">
-                        <span class="icon">⇄</span>
-                        <p>Transfer to LTT (Lokmanya Tilak Terminus)</p>
-                    </div>
-                    <div class="info-item">
-                        <span class="icon">🚆</span>
-                        <p>Board Netravati Express</p>
-                        <small>Sleeper Class (Non-Luxury)</small>
+                    <div class="timeline-item-row">
+                        <span class="time">Day 8</span>
+                        <div class="details">
+                            <strong>Departure</strong>
+                            <p>Drop at Railway Station / Airport</p>
+                        </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Slide 9: Day 8 -->
+        <!-- Slide 8: Food -->
+        <section class="slide" id="slide8">
+            <div class="bg-layer" style="background-color: #222;"></div> <!-- Placeholder or solid color -->
+            <div class="content-overlay centered">
+                <h2>🍽️ Food & Meals Plan</h2>
+                <div class="food-grid">
+                    <div class="food-card">
+                        <h3>☕ Breakfast</h3>
+                        <p>Tea, Paratha, Omelette, Sandwich, Poori Bhaji</p>
+                    </div>
+                    <div class="food-card">
+                        <h3>🍛 Lunch</h3>
+                        <p>Biryani / Dal Rice / Roti / Sabji</p>
+                    </div>
+                    <div class="food-card">
+                        <h3>🍲 Dinner</h3>
+                        <p>Chapati, Rice, Chicken Curry / Veg Curry</p>
+                    </div>
+                </div>
+                <p class="note">✅ Meals Included as per itinerary</p>
+            </div>
+        </section>
+
+        <!-- Slide 9: Inclusions -->
         <section class="slide" id="slide9">
+            <div class="bg-layer" style="background-image: url('assets/slide5.png'); filter: grayscale(100%);"></div>
+            <div class="content-overlay left-aligned">
+                <h2>✅ Package Inclusions</h2>
+                <ul class="check-list">
+                    <li>Pickup & Drop</li>
+                    <li>Accommodation (4 sharing)</li>
+                    <li>Food as per plan</li>
+                    <li>Entry tickets (mentioned places)</li>
+                    <li>Kasol to Grahan cab</li>
+                    <li>Malayali Tour Guide</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Slide 10: Add-ons -->
+        <section class="slide" id="slide10">
+            <div class="content-overlay centered">
+                <h2>🎁 Complimentary Add-ons</h2>
+                <div class="gift-box-container">
+                    <div class="gift-item">🔥 Campfire & DJ Night</div>
+                    <div class="gift-item">🍪 Snack box for trek</div>
+                    <div class="gift-item">💊 Medical support</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Slide 11: Exclusions -->
+        <section class="slide" id="slide11">
+            <div class="content-overlay right-aligned">
+                <h2>❌ Package Exclusions</h2>
+                <ul class="cross-list">
+                    <li>Adventure activities</li>
+                    <li>Snow vehicle charges</li>
+                    <li>Meals not mentioned</li>
+                    <li>Personal expenses</li>
+                    <li>Natural calamity expenses</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Slide 12: Winter Tips -->
+        <section class="slide" id="slide12">
+            <div class="bg-layer" style="background-image: url('assets/weather_forecast_1.jpg'); opacity: 0.3;"></div>
+            <div class="content-overlay centered">
+                <h2>❄️ Winter Wear Tips</h2>
+                <div class="icon-grid">
+                    <div class="icon-item">🧥 Thermals</div>
+                    <div class="icon-item">🧤 Woollen Gloves</div>
+                    <div class="icon-item">🧦 Woollen Socks</div>
+                    <div class="icon-item">👟 Grip Shoes</div>
+                    <div class="icon-item">🧣 Monkey Cap & Shawl</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Slide 13: Important Notes -->
+        <section class="slide" id="slide13">
+            <div class="content-overlay glass-panel warning-theme">
+                <h2>⚠️ Important Notes</h2>
+                <ul class="warning-list">
+                    <li>Snow vehicle charges extra if required</li>
+                    <li>Weather dependent routes</li>
+                    <li>4x4 vehicles needed in heavy snowfall</li>
+                    <li>Road blockages possible (Safety First)</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Slide 14: Pricing -->
+        <section class="slide" id="slide14">
+            <div class="bg-layer" style="background-image: url('assets/slide7.png'); filter: saturate(0);"></div>
+            <div class="content-overlay centered">
+                <h2>Pricing & Payment</h2>
+                <div class="price-tag">
+                    <span class="currency">₹</span>
+                    <span class="amount">11,800</span>
+                    <span class="per">/person</span>
+                </div>
+                <p>Group booking available</p>
+                <p>Advance required for confirmation</p>
+                <p>Flexible payment options</p>
+            </div>
+        </section>
+
+        <!-- Slide 15: Why Choose Nomadller -->
+        <section class="slide" id="slide15">
+            <div class="content-overlay centered">
+                <h2>Why Choose Nomadller?</h2>
+                <ul class="star-list">
+                    <li>✅ Trusted travel partner</li>
+                    <li>✅ Student-friendly packages</li>
+                    <li>✅ Safe & guided tours</li>
+                    <li>✅ Best Himalayan routes</li>
+                    <li>✅ Affordable pricing</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Slide 16: Contact -->
+        <section class="slide" id="slide16">
             <div class="bg-layer" style="background-image: url('assets/slide8.png');"></div>
             <div class="content-overlay centered">
-                <div class="day-badge">Day 8</div>
-                <h2>Homecoming</h2>
-
-                <div class="loading-container">
-                    <div class="loading-bar"></div>
-                    <div class="loading-text">Reaching Kerala...</div>
+                <h2>Book Your Slot Now!</h2>
+                <div class="contact-card-large">
+                    <p class="phone">📞 +91 6238998382</p>
+                    <p class="website">🌐 nomadller.com</p>
+                    <p class="email">📧 nomadllercommunity@gmail.com</p>
                 </div>
 
-                <div class="final-arrival">
-                    <p class="highlight-text">Arrival in Kerala</p>
-                    <p class="small-note">Trip Ends with Beautiful Memories ❤</p>
+                <h1 class="grand-finale" style="margin-top: 40px;">Memories > Miles</h1>
 
-                    <a href="weather.html" class="weather-btn">
-                        Check Live Weather Updates ⛈️
-                    </a>
-
-                    <!-- Live Trip Status Button -->
-                    <a href="timeline.html" class="live-status-btn">
-                        Live Trip Status 📍
-                    </a>
+                <div class="action-buttons" style="margin-top: 30px;">
+                    <a href="weather.html" class="weather-btn">Check Weather ⛈️</a>
+                    <a href="timeline.html" class="live-status-btn">Live Trip Status 📍</a>
                 </div>
-
-                <h1 class="grand-finale">Memories > Miles</h1>
             </div>
         </section>
 

@@ -1,6 +1,4 @@
--- Run this in the Supabase SQL Editor
-
--- 1. Create the table
+-- Create the table
 create table trip_events (
   id text primary key,
   title text not null,
@@ -14,34 +12,31 @@ create table trip_events (
   sort_order serial
 );
 
--- 2. Insert Default Data (Feb 7 Trip)
-insert into trip_events (id, title, description, time, icon, status, count_check, head_count_verified, warning, sort_order) values
-('start', 'Trip Begins: Assembly', 'Assembly at Thrissur Railway Station. Head Count Check.', 'Feb 7', '🚩', 'pending', true, false, false, 1),
-('train_board', 'Boarding Train', 'Train Departs towards Delhi', 'Feb 7', '🚆', 'pending', false, false, false, 2),
-('delhi_reach', 'Reached Delhi', 'Arrival at Hazrat Nizamuddin Station. Head Count Check.', 'Feb 8', '📍', 'pending', true, false, false, 3),
-('bus_board', 'Boarding Volvo', 'Transfer to Volvo Bus for Manali', 'Feb 8', '🚌', 'pending', false, false, false, 4),
-('manali_reach', 'Reached Manali', 'Arrival in Manali. Hotel Check-in. Head Count Check.', 'Feb 9', '🏔️', 'pending', true, false, false, 5),
-('sightseeing_manali', 'Local Sightseeing', 'Hadimba Temple, Van Vihar, Mall Road', 'Feb 9', '📷', 'pending', false, false, false, 6),
-('snow_point_start', 'Depart for Snow Point', 'Early morning departure for Snow Point.', 'Feb 10', '❄️', 'pending', false, false, false, 7),
-('snow_point_check', 'Snow Point Check', 'Post-excursion Head Count. ⚠️ ALERT: Not all students reported.', 'Feb 10', '📋', 'pending', true, false, true, 8),
-('kullu_visit', 'Kullu Visit', 'River Rafting. Head Count Check.', 'Feb 11', '🌊', 'pending', true, false, false, 9),
-('return_journey', 'Return Journey', 'Volvo Bus to Delhi boarded', 'Feb 11', '🚌', 'pending', false, false, false, 10),
-('delhi_sight', 'Delhi Sightseeing', 'Sightseeing. Head Count Check.', 'Feb 12', '🕌', 'pending', true, false, false, 11),
-('train_return', 'Train to Mumbai', 'Boarding train to Mumbai', 'Feb 12', '🚆', 'pending', false, false, false, 12),
-('mumbai_transfer', 'Mumbai Transfer', 'Transfer to LTT. Head Count Check.', 'Feb 13', '⇄', 'pending', true, false, false, 13),
-('home_arrival', 'Homecoming', 'Reached Kerala safely', 'Feb 14', '🏡', 'pending', false, false, false, 14);
-
--- 3. Enable Public Access (Simplest for this demo)
+-- Turn on security
 alter table trip_events enable row level security;
 
--- Policy to allow anyone to read
+-- Allow public access (for demo simplicity)
 create policy "Public Read" on trip_events for select using (true);
-
--- Policy to allow anonymous updates (For demo Admin panel without login)
--- IMPORTANT: In a real app, you would require auth for this!
 create policy "Public Update" on trip_events for update using (true);
+create policy "Public Insert" on trip_events for insert with check (true);
 
--- 4. Enable Realtime
+-- Insert Default Data (8-Day Itinerary)
+insert into trip_events (id, title, description, time, icon, status, count_check, head_count_verified, warning, sort_order) values
+('trip_start', 'Trip Start: Agra', 'Taj Mahal & Agra Fort Visit', 'Feb 7', '🕌', 'pending', true, false, false, 1),
+('agra_delhi', 'Transfer to Delhi', 'Evening transfer from Agra to Delhi', 'Feb 7', '🚌', 'pending', false, false, false, 2),
+('delhi_sight_1', 'Delhi Sightseeing', 'Qutub Minar, India Gate, Jama Masjid', 'Feb 8', '🏛️', 'pending', false, false, false, 3),
+('volvo_board', 'Boarding Volvo', 'Overnight journey to Manali', 'Feb 8', '🚌', 'pending', true, false, false, 4),
+('manali_arrival', 'Reached Manali', 'Hotel Check-in & Relax', 'Feb 9', '🏨', 'pending', false, false, false, 5),
+('manali_local', 'Manali Local', 'Hadimba Temple, Mall Road, Van Vihar', 'Feb 9', '🛍️', 'pending', false, false, false, 6),
+('snow_point', 'Snow Adventure', 'Solang Valley, Atal Tunnel, Sissu', 'Feb 10', '❄️', 'pending', true, false, false, 7),
+('kullu_rafting', 'Kullu Rafting', 'River Rafting in Kullu', 'Feb 11', '🌊', 'pending', false, false, false, 8),
+('kasol_transfer', 'Grahan Trek Start', 'Move to Kasol & Trek to Grahan Village', 'Feb 11', '🥾', 'pending', true, false, false, 9),
+('grahan_morning', 'Village Morning', 'Explore Grahan Village', 'Feb 12', '🌄', 'pending', false, false, false, 10),
+('return_volvo', 'Return Journey', 'Trek down & Volvo to Delhi', 'Feb 12', '🚌', 'pending', true, false, false, 11),
+('delhi_sight_2', 'Delhi Final Day', 'Akshardham, Lotus Temple, Shopping', 'Feb 13', '🕌', 'pending', false, false, false, 12),
+('departure', 'Departure', 'Drop at Railway Station / Airport', 'Feb 14', '👋', 'pending', false, false, false, 13);
+
+-- Enable Realtime
 begin;
   drop publication if exists supabase_realtime;
   create publication supabase_realtime for table trip_events;
