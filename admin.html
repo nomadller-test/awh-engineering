@@ -151,13 +151,121 @@
             padding: 8px 16px;
             border-radius: 4px;
         }
+
+        /* Attendance Modal & List Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+        }
+
+        .modal-content {
+            background-color: #fefefe;
+            margin: 5% auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 90%;
+            max-width: 600px;
+            border-radius: 8px;
+            max-height: 80vh;
+            overflow-y: auto;
+        }
+
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 10px;
+            margin-bottom: 15px;
+        }
+
+        .close {
+            color: #aaa;
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .close:hover {
+            color: black;
+        }
+
+        .search-bar {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+            font-family: 'Rajdhani', sans-serif;
+            font-size: 1rem;
+        }
+
+        .student-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px;
+            border-bottom: 1px solid #eee;
+        }
+
+        .student-item:last-child {
+            border-bottom: none;
+        }
+
+        .btn-checkin {
+            background: #e0e0e0;
+            color: #555;
+        }
+
+        .btn-checked-in {
+            background: #00ff88;
+            color: #004400;
+        }
+
+        .attendance-stats {
+            margin-bottom: 15px;
+            font-weight: bold;
+            color: #666;
+        }
     </style>
 </head>
 
 <body>
     <div class="toolbar">
         <h1>Trip Control Room 🛠️</h1>
-        <a href="timeline.html" target="_blank" class="view-link">Open Public View ↗</a>
+        <div style="display:flex; gap:10px;">
+            <button class="view-link" style="background:none; cursor:pointer;" onclick="openAttendance()">👥 Student
+                List</button>
+            <a href="timeline.html" target="_blank" class="view-link">Open Public View ↗</a>
+        </div>
+    </div>
+
+    <!-- Attendance Modal -->
+    <div id="attendanceModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Student Attendance</h2>
+                <span class="close" onclick="closeAttendance()">&times;</span>
+            </div>
+
+            <input type="text" id="studentSearch" class="search-bar" placeholder="Search student name..."
+                onkeyup="filterStudents()">
+
+            <div class="attendance-stats" id="attendance-stats">
+                Checked In: 0 / 37
+            </div>
+
+            <div id="student-list-container">
+                <!-- Students will be loaded here -->
+            </div>
+        </div>
     </div>
 
     <div id="admin-list"></div>
@@ -252,6 +360,60 @@
             }
         }
 
+        // Attendance Logic
+        async function openAttendance() {
+            document.getElementById('attendanceModal').style.display = "block";
+            renderStudents();
+        }
+
+        function closeAttendance() {
+            document.getElementById('attendanceModal').style.display = "none";
+        }
+
+        window.onclick = function (event) {
+            const modal = document.getElementById('attendanceModal');
+            if (event.target == modal) {
+                closeAttendance();
+            }
+        }
+
+        async function renderStudents() {
+            const container = document.getElementById('student-list-container');
+            const stats = document.getElementById('attendance-stats');
+            container.innerHTML = '<p style="text-align:center; color:#888;">Loading students...</p>';
+
+            const students = await manager.fetchStudents();
+            const searchTerm = document.getElementById('studentSearch').value.toLowerCase();
+
+            const filtered = students.filter(s => s.name.toLowerCase().includes(searchTerm));
+            const checkedInCount = students.filter(s => s.is_checked_in).length;
+
+            stats.innerText = `Checked In: ${checkedInCount} / ${students.length}`;
+            container.innerHTML = '';
+
+            filtered.forEach(student => {
+                const item = document.createElement('div');
+                item.className = 'student-item';
+                item.innerHTML = `
+                    <span>${student.name}</span>
+                    <button class="${student.is_checked_in ? 'btn-checked-in' : 'btn-checkin'}" 
+                            onclick="toggleStudent('${student.id}', ${!student.is_checked_in})">
+                        ${student.is_checked_in ? '✓ Checked In' : 'Check In'}
+                    </button>
+                `;
+                container.appendChild(item);
+            });
+        }
+
+        async function toggleStudent(id, status) {
+            await manager.toggleStudentCheckIn(id, status);
+            renderStudents();
+        }
+
+        function filterStudents() {
+            renderStudents();
+        }
+
         // Init
         renderAdmin();
 
@@ -260,8 +422,14 @@
             window.db
                 .channel('admin-db-changes')
                 .on('postgres_changes', { event: '*', schema: 'public', table: 'trip_events' }, payload => {
-                    console.log('Change received!', payload);
+                    console.log('Event change received!', payload);
                     renderAdmin();
+                })
+                .on('postgres_changes', { event: '*', schema: 'public', table: 'students' }, payload => {
+                    console.log('Student change received!', payload);
+                    if (document.getElementById('attendanceModal').style.display === "block") {
+                        renderStudents();
+                    }
                 })
                 .subscribe();
         }

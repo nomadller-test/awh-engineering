@@ -116,24 +116,56 @@ class TripManager {
         return !error;
     }
 
+    // --- Student Attendance Methods ---
+
+    async fetchStudents() {
+        if (!db) return [];
+        const { data, error } = await db
+            .from('students')
+            .select('*')
+            .order('name', { ascending: true });
+
+        if (error) {
+            console.error('Error fetching students:', error);
+            return [];
+        }
+        return data;
+    }
+
+    async toggleStudentCheckIn(id, status) {
+        if (!db) return false;
+        const { error } = await db
+            .from('students')
+            .update({ is_checked_in: status, updated_at: new Date().toISOString() })
+            .eq('id', id);
+
+        if (error) console.error('Error updating student check-in:', error);
+        return !error;
+    }
+
+    // --- Reset Logic ---
+
     // Reset Data (Re-applies defaults logic if needed, or just resets columns)
     async resetData() {
-        // Resetting everything to pending/default
-        // In a real app we might delete and re-insert, or update all.
-        // Here we'll just update all to 'pending' and clear custom times?
-        // For simplicity, let's just update all status to pending.
-
-        const { error } = await db
+        // Reset trip events
+        const { error: eventError } = await db
             .from('trip_events')
             .update({
                 status: 'pending',
                 head_count_verified: false,
-                // We might want to keep the original hardcoded dates? 
-                // For this demo, let's not wipe the dates completely if they are hardcoded rows.
             })
-            .neq('id', 'placeholder'); // Update all
+            .neq('id', 'placeholder');
 
-        return !error;
+        // Reset students
+        const { error: studentError } = await db
+            .from('students')
+            .update({ is_checked_in: false })
+            .neq('id', 0);
+
+        if (eventError) console.error('Error resetting events:', eventError);
+        if (studentError) console.error('Error resetting students:', studentError);
+
+        return !eventError && !studentError;
     }
 
     getEvents() {
